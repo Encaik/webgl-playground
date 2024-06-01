@@ -103,14 +103,14 @@ const Canvas = (props: {
       gl.useProgram(program);
 
       // 获取 a_Position 的变量地址
-      // const a_Position = gl.getAttribLocation(program, 'a_Position');
-      // const a_Color = gl.getAttribLocation(program, 'a_Color');
+      const a_Position = gl.getAttribLocation(program, 'a_Position');
+      const a_Color = gl.getAttribLocation(program, 'a_Color');
 
-      // createBuffer(gl, gl.ARRAY_BUFFER, vertices, a_Position, 2);
-      // createBuffer(gl, gl.ARRAY_BUFFER, colors, a_Color, 4);
+      createBuffer(gl, gl.ARRAY_BUFFER, vertices, a_Position, 2);
+      createBuffer(gl, gl.ARRAY_BUFFER, colors, a_Color, 4);
 
-      // gl.drawArrays(props.drawType, 0, 3);
-      eval(props.programCode);
+      gl.drawArrays(props.drawType, 0, 3);
+      // eval(props.programCode);
     } catch (error) {
       console.warn('webgl error');
     }
